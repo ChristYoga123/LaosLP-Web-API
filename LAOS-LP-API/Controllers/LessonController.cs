@@ -23,5 +23,12 @@ namespace LAOS_LP_API.Controllers
             var lessons = _context.lessons.Include(c => c.Course).Include("Course.Category");
             return lessons.ToList();
         }
+
+        [HttpGet("id")]
+        public IActionResult GetById(int id)
+        {
+            var lesson = _context.lessons.Include(c => c.Course).Include("Course.Category").FirstOrDefault(l => l.id == id);
+            return lesson == null ? NotFound() : Ok(lesson);
+        }
     }
 }
