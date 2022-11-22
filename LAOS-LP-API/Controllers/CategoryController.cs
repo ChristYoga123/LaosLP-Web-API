@@ -18,5 +18,12 @@ namespace LAOS_LP_API.Controllers
             return _context.categories.ToList();
         }
 
+        [HttpGet("id")]
+        public IActionResult GetById(int id)
+        {
+            var category = _context.categories.Find(id);
+            return category == null ? NotFound() : Ok(category);
+        }
+
     }
 }
