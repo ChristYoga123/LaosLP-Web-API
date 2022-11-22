@@ -16,8 +16,15 @@ namespace LAOS_LP_API.Controllers
         [HttpGet]
         public IEnumerable<Course> Get()
         {
-            var course = _context.courses.Include(ct => ct.Category);
-            return course.ToList();
+            var courses = _context.courses.Include(ct => ct.Category);
+            return courses.ToList();
+        }
+
+        [HttpGet("id")]
+        public IActionResult GetById(int id)
+        {
+            var course = _context.courses.Include(ct => ct.Category).FirstOrDefault(c => c.id == id);
+            return course == null ? NotFound() : Ok(course);
         }
 
     }
