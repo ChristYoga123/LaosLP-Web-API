@@ -20,7 +20,7 @@ namespace LAOS_LP_API.Controllers
         [HttpGet]
         public IEnumerable<Lesson> Get()
         {
-            var lessons = _context.lessons.Include(c => c.Course);
+            var lessons = _context.lessons.Include(c => c.Course).Include("Course.Category");
             return lessons.ToList();
         }
     }
