@@ -17,6 +17,8 @@ namespace LAOS_LP_API.Data
         public DbSet<Category> categories { get; set; }
         public DbSet<Course> courses { get; set; }
         public DbSet<Lesson> lessons { get; set; }
+        public DbSet<User> users { get; set; }
+        public DbSet<Order> orders { get; set; }
 
     }
 }
