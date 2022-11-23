@@ -9,8 +9,10 @@ namespace LAOS_LP_API.Models
         [Required]
         public string name { get; set; }
         [Required]
+        [EmailAddress]
         public string email { get; set; }
         [Required]
+        [MinLength(8)]
         public string password { get; set; }
         public bool is_admin { get; set; }
     }
