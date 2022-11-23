@@ -11,6 +11,7 @@ namespace LAOS_LP_API.Models
         [ForeignKey("User")]
         public int user_id { get; set; }
         public User? User { get; set; }
+        [Required]
         [ForeignKey("Course")]
         public int course_id { get; set; }
         public Course? Course { get; set; }
