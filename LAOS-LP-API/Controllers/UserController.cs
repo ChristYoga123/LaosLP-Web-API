@@ -22,11 +22,30 @@ namespace LAOS_LP_API.Controllers
         }
 
         [HttpPost]
+        [Route("Login")]
+        public IActionResult Login([FromBody] User user)
+        {
+            var usr = _context.users.Where(u => u.email == user.email && u.password == user.password).FirstOrDefault();
+            if (usr != null)
+            {
+                return Ok("Login Sukses");
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        [Route("Register")]
         public IActionResult Register(User user)
         {
+            var usr = _context.users.Where(u => u.name == user.name || u.email == user.email).FirstOrDefault();
+            if(usr != null)
+            {
+                return BadRequest("Data pengguna sudah terdaftar");
+            }
             _context.users.Add(user);
             _context.SaveChanges();
             return CreatedAtAction(nameof(Show), new { id = user.id }, user);
         }
+
     }
 }

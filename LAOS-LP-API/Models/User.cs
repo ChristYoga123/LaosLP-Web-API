@@ -6,8 +6,11 @@ namespace LAOS_LP_API.Models
     {
         [Key]
         public int id { get; set; }
+        [Required]
         public string name { get; set; }
+        [Required]
         public string email { get; set; }
+        [Required]
         public string password { get; set; }
         public bool is_admin { get; set; }
     }
