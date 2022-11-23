@@ -23,9 +23,9 @@ namespace LAOS_LP_API.Controllers
 
         [HttpPost]
         [Route("Login")]
-        public IActionResult Login([FromBody] User user)
+        public IActionResult Login([FromBody] Login login)
         {
-            var usr = _context.users.Where(u => u.email == user.email && u.password == user.password).FirstOrDefault();
+            var usr = _context.users.Where(u => u.email == login.email && u.password == login.password).FirstOrDefault();
             if (usr != null)
             {
                 return Ok("Login Sukses");
