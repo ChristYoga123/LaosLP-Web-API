@@ -1,5 +1,6 @@
 ﻿using LAOS_LP_API.Data;
 using LAOS_LP_API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,7 +24,7 @@ namespace LAOS_LP_API.Controllers
         {
             _configuration = config;
             _context = context;
-        } 
+        }
 
         [HttpGet("id")]
         public IActionResult Show(int id)
@@ -77,6 +78,5 @@ namespace LAOS_LP_API.Controllers
             _context.SaveChanges();
             return CreatedAtAction(nameof(Show), new { id = user.id }, user);
         }
-
     }
 }
