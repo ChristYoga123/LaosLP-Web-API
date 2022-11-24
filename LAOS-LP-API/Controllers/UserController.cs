@@ -25,12 +25,12 @@ namespace LAOS_LP_API.Controllers
         [Route("Login")]
         public IActionResult Login([FromBody] Login login)
         {
-            var usr = _context.users.Where(u => u.email == login.email && u.password == login.password).FirstOrDefault();
+            var usr = _context.users.Where(u => u.email.Equals(login.email) && u.password.Equals(login.password)).FirstOrDefault();
             if (usr != null)
             {
                 return Ok("Login Sukses");
             }
-            return NotFound();
+            return NotFound("Username atau Password salah");
         }
 
         [HttpPost]
