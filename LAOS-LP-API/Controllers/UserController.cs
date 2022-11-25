@@ -58,7 +58,7 @@ namespace LAOS_LP_API.Controllers
                         _configuration["Jwt:Issuer"],
                         _configuration["Jwt:Audience"],
                         claims,
-                        expires: DateTime.UtcNow.AddMinutes(10),
+                        expires: DateTime.UtcNow.AddHours(10),
                         signingCredentials: signIn);
                 return Ok(new JwtSecurityTokenHandler().WriteToken(token));
             }
@@ -79,4 +79,5 @@ namespace LAOS_LP_API.Controllers
             return CreatedAtAction(nameof(Show), new { id = user.id }, user);
         }
     }
+
 }
