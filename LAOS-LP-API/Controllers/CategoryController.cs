@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LAOS_LP_API.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoryController : ControllerBase

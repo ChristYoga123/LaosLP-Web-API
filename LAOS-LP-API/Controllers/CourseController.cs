@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LAOS_LP_API.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CourseController : ControllerBase
